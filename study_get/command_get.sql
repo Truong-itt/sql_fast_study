@@ -271,3 +271,80 @@
 -- where  extract (month from o.order_date) = 5
 -- order by o.order_date asc;
 
+-- select o.customer_id,count(*) as totalOrder from orders o 
+-- group by o.customer_id
+-- having count(*)> 20
+
+-- select p.supplier_id, count(*),sum(p.units_in_stock), avg(p.unit_price) from products p 
+-- group by p.supplier_id
+-- having sum(p.units_in_stock) > 30 and avg(p.unit_price) < 50
+
+-- loc ra don thang theo thang trong do moi don hang nam trong khoan 1997-07-01 den 1996-12-31
+-- sap xep thang tang dan
+-- select EXTRACT(month from o.shipped_date), sum(o.freight) 
+-- from orders o
+-- where o.shipped_date BETWEEN '1996-07-01' and '1996-12-31' 
+-- group by EXTRACT(month from o.shipped_Date)
+-- order by EXTRACT(month from o.shipped_Date) asc;
+
+-- select o.ship_city, count(*) from orders o
+-- group by o.ship_city
+-- having count(*) > 16 
+-- order by count(*) desc;
+
+-- on tap sql
+-- select o.customer_id, count(*) from orders o
+-- group by o.customer_id
+-- order by count(*) desc; 
+
+-- select o.employee_id, count(*) as totalOrder
+-- from orders o
+-- group by o.employee_id
+-- having count(*) > 100
+-- order by count(*) desc;
+
+-- hay cho biet the loai nao co so san pham khac nhau lon hon 11
+-- select p.category_id, count(p.product_id) as totalProduct 
+-- from products p
+-- group by p.category_id
+-- having count(p.product_id) > 11
+
+-- hay cho biet the loai nao co tong so trong kho > 350 
+-- select p.category_id, sum(p.units_in_stock) 
+-- from products p
+-- group by p.category_id
+-- having sum(p.units_in_stock) > 350
+
+-- cho biet quoc gia nao co nhieu hon 7 khach hang 
+-- select o.ship_country, count(o.customer_id) 
+-- from orders o 
+-- group by o.ship_country
+-- having count(o.customer_id) > 7
+
+-- hay cho biet nhung ngay nao co nhieu hon 5 don hang duoc giao 
+-- sap xep tang dan ngay giao 
+-- select o.shipped_date, count(o.order_id) 
+-- from orders o
+-- group by o.shipped_date
+-- having count(o.order_id) > 5
+-- order by o.shipped_date asc;
+
+-- hay cho biet quoc gia bat dau bang chu 'A' va 'G'
+-- va co so luong don dat hang lon hon 29
+-- select o.ship_country ,count(o.order_id)
+-- from orders o
+-- where o.ship_country SIMILAR to '[A|G]%'
+-- group by o.ship_country
+-- having count(o.order_id) > 29
+-- order by count(o.order_id) desc;
+
+-- hay cho biet nhung thanh pho nao co so luong don hang khac 1 va 2 
+-- ngay dat hang tu '1997-04-01' den ngay '1997-08-31'
+-- select o.ship_city, count(*) 
+-- from orders o
+-- group by o.ship_city
+-- having count(*) <> 1 and count(*) <> 2;
+
+
+
+
